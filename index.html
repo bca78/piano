@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klavier | Studio Les Piano Profesional</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        gold: {
+                            400: '#D4AF37',
+                            500: '#C5A028',
+                            600: '#AA8A22',
+                        },
+                        charcoal: {
+                            800: '#2D2D2D',
+                            900: '#1A1A1A',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles for elegance */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .hero-overlay {
+            background: linear-gradient(to right, rgba(26, 26, 26, 0.9) 0%, rgba(26, 26, 26, 0.4) 100%);
+        }
+        .img-hover-zoom {
+            transition: transform 0.5s ease;
+        }
+        .img-hover-container:hover .img-hover-zoom {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-700 bg-[#FAFAFA] antialiased selection:bg-gold-500 selection:text-white">
+
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-serif text-2xl font-bold text-charcoal-900 tracking-wider">
+                        Klavier<span class="text-gold-500">.</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#tentang" class="text-sm font-medium text-gray-600 hover:text-gold-600 transition-colors">Tentang Guru</a>
+                    <a href="#paket" class="text-sm font-medium text-gray-600 hover:text-gold-600 transition-colors">Paket Les</a>
+                    <a href="#showcase" class="text-sm font-medium text-gray-600 hover:text-gold-600 transition-colors">Galeri</a>
+                    <a href="#testimoni" class="text-sm font-medium text-gray-600 hover:text-gold-600 transition-colors">Testimoni</a>
+                    <a href="#jadwal" class="text-sm font-medium text-gray-600 hover:text-gold-600 transition-colors">Jadwal</a>
+                    <a href="https://wa.me/62813123123123" target="_blank" class="bg-charcoal-900 text-white px-6 py-2.5 rounded-sm text-sm font-medium hover:bg-gold-600 transition-colors duration-300 shadow-md">
+                        Booking Sekarang
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-charcoal-900 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-1 shadow-lg">
+                <a href="#tentang" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-md">Tentang Guru</a>
+                <a href="#paket" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-md">Paket Les</a>
+                <a href="#showcase" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-md">Galeri</a>
+                <a href="#jadwal" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-md">Jadwal</a>
+                <a href="https://wa.me/62813123123123" target="_blank" class="block w-full text-center mt-4 bg-charcoal-900 text-white px-6 py-3 rounded-sm text-base font-medium hover:bg-gold-600 transition-colors">
+                    Hubungi WhatsApp
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative h-screen min-h-[600px] flex items-center justify-center pt-20">
+        <div class="absolute inset-0 z-0">
+            <!-- High quality piano image from Pexels (more stable) -->
+            <img src="https://images.pexels.com/photos/164743/pexels-photo-164743.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80" 
+                 onerror="this.onerror=null; this.src='https://placehold.co/1920x1080/2D2D2D/D4AF37?text=Grand+Piano+Studio';" 
+                 alt="Grand Piano Background" 
+                 class="w-full h-full object-cover bg-charcoal-900" />
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="max-w-2xl">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif text-white font-bold leading-tight mb-6">
+                    Harmoni di Setiap Jari.<br>
+                    <span class="text-gold-400 font-italic italic font-normal">Belajar piano jadi indah & mudah.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-200 mb-10 font-light max-w-lg leading-relaxed">
+                    Pendekatan personal untuk setiap murid. Temukan potensi musikal Anda dari tingkat pemula hingga mahir bersama instruktur profesional.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://wa.me/62813123123123" target="_blank" class="bg-gold-500 text-white px-8 py-4 rounded-sm text-center text-base font-semibold hover:bg-gold-600 hover:-translate-y-1 transition-all duration-300 shadow-lg flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp text-xl"></i> Konsultasi Gratis
+                    </a>
+                    <a href="#paket" class="bg-transparent border border-white text-white px-8 py-4 rounded-sm text-center text-base font-medium hover:bg-white hover:text-charcoal-900 transition-colors duration-300">
+                        Lihat Program
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tentang" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="relative img-hover-container rounded-sm overflow-hidden shadow-2xl bg-gray-100">
+                    <img src="https://images.pexels.com/photos/7521199/pexels-photo-7521199.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" 
+                         onerror="this.onerror=null; this.src='https://placehold.co/800x1200/F3F4F6/C5A028?text=Foto+Instruktur+Piano';" 
+                         alt="Guru Piano Profesional" 
+                         class="w-full h-[600px] object-cover img-hover-zoom" />
+                    <div class="absolute bottom-0 left-0 bg-white p-6 md:p-8 m-6 md:m-8 rounded-sm shadow-lg">
+                        <p class="font-serif text-xl font-bold text-charcoal-900">Diana Sastrowardoyo</p>
+                        <p class="text-gold-600 font-medium text-sm">Principal Instructor & Founder</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h2 class="text-sm font-bold text-gold-500 uppercase tracking-widest mb-3">Tentang Instruktur</h2>
+                    <h3 class="text-3xl md:text-4xl font-serif text-charcoal-900 font-bold mb-6 leading-snug">
+                        Lebih dari sekadar membaca not, kita belajar <span class="italic font-normal text-gold-600">bercerita melalui nada.</span>
+                    </h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Halo, saya Diana. Memiliki pengalaman lebih dari 10 tahun sebagai pengajar piano dan perfomer, saya mendedikasikan karir saya untuk membantu murid dari segala usia mencintai musik. 
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Pendekatan mengajar saya fokus pada teknik yang sehat, pemahaman teori yang kuat, serta interpretasi emosional. Baik Anda bermain untuk hobi atau persiapan ujian sertifikasi, kurikulum disesuaikan khusus untuk Anda.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-8 border-t border-gray-100 pt-8">
+                        <div>
+                            <p class="text-4xl font-serif text-charcoal-900 mb-2">10+</p>
+                            <p class="text-sm text-gray-500 font-medium">Tahun Pengalaman</p>
+                        </div>
+                        <div>
+                            <p class="text-4xl font-serif text-charcoal-900 mb-2">ABRSM</p>
+                            <p class="text-sm text-gray-500 font-medium">Sertifikasi Grade 8 & Diploma</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="paket" class="py-24 bg-[#FAFAFA]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-sm font-bold text-gold-500 uppercase tracking-widest mb-3">Program Kami</h2>
+                <h3 class="text-3xl md:text-4xl font-serif text-charcoal-900 font-bold mb-4">Pilihan Paket Les Piano</h3>
+                <p class="text-gray-600">Program disusun secara komprehensif, mencakup praktik instrumen, teori musik, hingga pelatihan pendengaran (ear training).</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Beginner -->
+                <div class="bg-white border border-gray-100 p-8 rounded-sm hover:shadow-xl transition-shadow duration-300 relative flex flex-col">
+                    <h4 class="font-serif text-2xl text-charcoal-900 font-semibold mb-2">Beginner</h4>
+                    <p class="text-gray-500 text-sm mb-6">Pondasi sempurna untuk pemula.</p>
+                    <div class="mb-6">
+                        <span class="text-3xl font-bold text-charcoal-900">Rp 500k</span>
+                        <span class="text-gray-500">/ bulan</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start text-gray-600 text-sm">
+                            <i class="fas fa-check text-gold-500 mt-1 mr-3"></i>
+                            Durasi 45 menit / pertemuan
+                        </li>
+                        <li class="flex items-start text-gray-600 text-sm">
+                            <i class="fas fa-check text-gold-500 mt-1 mr-3"></i>
+                            4x Pertemuan per bulan
+                        </li>
+                        <li class="flex items-start text-gray-600 text-sm">
+                            <i class="fas fa-check text-gold-500 mt-1 mr-3"></i>
+                            Dasar membaca partitur & ritme
+                        </li>
+                        <li class="flex items-start text-gray-600 text-sm">
+                            <i class="fas fa-check text-gold-500 mt-1 mr-3"></i>
+                            Postur dan teknik jari dasar
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/62813123123123?text=Halo,%20saya%20tertarik%20dengan%20Paket%20Beginner" target="_blank" class="block w-full py-3 text-center border border-charcoal-900 text-charcoal-900 rounded-sm hover:bg-charcoal-900 hover:text-white transition-colors">Pilih Paket</a>
+                </div>
+
+                <!-- Intermediate (Featured) -->
+                <div class="bg-charcoal-900 p-8 rounded-sm shadow-2xl relative flex flex-col transform md:-translate-y-4 border-t-4 border-gold-500">
+                    <div class="absolute top-0 right-0 bg-gold-500 text-white text-xs font-bold px-3 py-1 uppercase tracking-wider rounded-bl-sm">Terpopuler</div>
+                    <h4 class="font-serif text-2xl text-white font-semibold mb-2">Intermediate</h4>
+                    <p class="text-gray-400 text-sm mb-6">Tingkatkan skill bermusik Anda.</p>
+                    <div class="mb-6">
+                        <span class="text-3xl font-bold text-white">Rp 750k</span>
+                        <span class="text-gray-400">/ bulan</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start text-gray-300 text-sm">
+                            <i class="fas fa-check text-gold-500 mt-1 mr-3"></i>
+                            Durasi 60 menit / pertemuan
+                        </li>
+                        <li class="flex items-start text-gray-300 text-sm">
+                            <i class="fas fa-check text-gold-500 mt-1 mr-3"></i>
+                            4x Pertemuan per bulan
+                        </li>
+                        <li class="flex items-start text-gray-300 text-sm">
+                            <i class="fas fa-check text-gold-500 mt-1 mr-3"></i>
+                            Eksplorasi genre (Klasik & Pop)
+                        </li>
+                        <li class="flex items-start text-gray-300 text-sm">
+                            <i class="fas fa-check text-gold-500 mt-1 mr-3"></i>
+                            Dinamika & interpretasi musikal
+                        </li>
+                        <li class="flex items-start text-gray-300 text-sm">
+                            <i class="fas fa-check text-gold-500 mt-1 mr-3"></i>
+                            Ear training level menengah
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/62813123123123?text=Halo,%20saya%20tertarik%20dengan%20Paket%20Intermediate" target="_blank" class="block w-full py-3 text-center bg-gold-500 text-white rounded-sm hover:bg-gold-600 transition-colors shadow-lg">Pilih Paket</a>
+                </div>
+
+                <!-- Advanced -->
+                <div class="bg-white border border-gray-100 p-8 rounded-sm hover:shadow-xl transition-shadow duration-300 relative flex flex-col">
+                    <h4 class="font-serif text-2xl text-charcoal-900 font-semibold mb-2">Advanced</h4>
+                    <p class="text-gray-500 text-sm mb-6">Persiapan ujian & profesional.</p>
+                    <div class="mb-6">
+                        <span class="text-3xl font-bold text-charcoal-900">Rp 1.000k</span>
+                        <span class="text-gray-500">/ bulan</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start text-gray-600 text-sm">
+                            <i class="fas fa-check text-gold-500 mt-1 mr-3"></i>
+                            Durasi 90 menit / pertemuan
+                        </li>
+                        <li class="flex items-start text-gray-600 text-sm">
+                            <i class="fas fa-check text-gold-500 mt-1 mr-3"></i>
+                            4x Pertemuan per bulan
+                        </li>
+                        <li class="flex items-start text-gray-600 text-sm">
+                            <i class="fas fa-check text-gold-500 mt-1 mr-3"></i>
+                            Mastering Repertoar tingkat tinggi
+                        </li>
+                        <li class="flex items-start text-gray-600 text-sm">
+                            <i class="fas fa-check text-gold-500 mt-1 mr-3"></i>
+                            Persiapan ABRSM / Trinity Grade 5+
+                        </li>
+                        <li class="flex items-start text-gray-600 text-sm">
+                            <i class="fas fa-check text-gold-500 mt-1 mr-3"></i>
+                            Teori musik tingkat lanjut
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/62813123123123?text=Halo,%20saya%20tertarik%20dengan%20Paket%20Advanced" target="_blank" class="block w-full py-3 text-center border border-charcoal-900 text-charcoal-900 rounded-sm hover:bg-charcoal-900 hover:text-white transition-colors">Pilih Paket</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="showcase" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div class="max-w-2xl">
+                    <h2 class="text-sm font-bold text-gold-500 uppercase tracking-widest mb-3">Student Showcase</h2>
+                    <h3 class="text-3xl md:text-4xl font-serif text-charcoal-900 font-bold">Momen Berharga di Panggung</h3>
+                </div>
+                <p class="text-gray-500 mt-4 md:mt-0 text-sm max-w-sm text-right hidden md:block">
+                    Kami rutin mengadakan konser resital mini untuk melatih kepercayaan diri murid-murid tampil di depan publik.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Gallery Item 1 -->
+                <div class="group relative overflow-hidden rounded-sm h-72 img-hover-container bg-gray-100">
+                    <img src="https://images.pexels.com/photos/2088219/pexels-photo-2088219.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" 
+                         onerror="this.onerror=null; this.src='https://placehold.co/800x600/F3F4F6/C5A028?text=Recital+Penampilan';" 
+                         alt="Siswa sedang konser" 
+                         class="w-full h-full object-cover img-hover-zoom">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center p-4">
+                            <p class="text-white font-serif text-xl mb-1">Winter Recital</p>
+                            <p class="text-gold-400 text-sm">Penampilan Kategori Pemula</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Gallery Item 2 -->
+                <div class="group relative overflow-hidden rounded-sm h-72 img-hover-container bg-gray-100">
+                    <img src="https://images.pexels.com/photos/4090947/pexels-photo-4090947.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" 
+                         onerror="this.onerror=null; this.src='https://placehold.co/800x600/F3F4F6/C5A028?text=Latihan+Duet';" 
+                         alt="Penampilan Piano" 
+                         class="w-full h-full object-cover img-hover-zoom">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center p-4">
+                            <p class="text-white font-serif text-xl mb-1">Duet Session</p>
+                            <p class="text-gold-400 text-sm">Melatih Harmonisasi</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Gallery Item 3 -->
+                <div class="group relative overflow-hidden rounded-sm h-72 sm:col-span-2 lg:col-span-1 img-hover-container bg-gray-100">
+                    <img src="https://images.pexels.com/photos/1594417/pexels-photo-1594417.jpeg?auto=compress&cs=tinysrgb&w=800&q=80" 
+                         onerror="this.onerror=null; this.src='https://placehold.co/800x600/F3F4F6/C5A028?text=Fokus+Teknik+Jari';" 
+                         alt="Praktik Piano" 
+                         class="w-full h-full object-cover img-hover-zoom">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center p-4">
+                            <p class="text-white font-serif text-xl mb-1">Fokus & Detail</p>
+                            <p class="text-gold-400 text-sm">Latihan Teknik Jari</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimoni" class="py-24 bg-charcoal-900 text-white relative">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-gold-500 opacity-5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-center font-serif text-3xl md:text-4xl mb-16">Apa Kata Mereka?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-[#2A2A2A] p-8 rounded-sm border border-gray-700">
+                    <div class="flex text-gold-500 mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic leading-relaxed text-sm">
+                        "Anak saya awalnya sangat pemalu dan tidak suka teori. Tapi berkat metode pengajaran Miss Diana, sekarang dia bisa berlatih tanpa disuruh dan baru saja memenangkan kompetisi lokal!"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center font-serif text-lg">I</div>
+                        <div>
+                            <p class="font-bold text-sm">Ibu Rina</p>
+                            <p class="text-xs text-gray-500">Orang tua murid (Usia 9 thn)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-[#2A2A2A] p-8 rounded-sm border border-gray-700">
+                    <div class="flex text-gold-500 mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic leading-relaxed text-sm">
+                        "Belajar piano di usia dewasa ternyata menyenangkan. Suasana studionya nyaman, dan gurunya sangat sabar mengoreksi postur tangan saya yang awalnya kaku."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center font-serif text-lg">A</div>
+                        <div>
+                            <p class="font-bold text-sm">Andi Setiawan</p>
+                            <p class="text-xs text-gray-500">Murid Dewasa (Paket Intermediate)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-[#2A2A2A] p-8 rounded-sm border border-gray-700 md:hidden lg:block">
+                    <div class="flex text-gold-500 mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic leading-relaxed text-sm">
+                        "Ujian ABRSM grade 5 saya berjalan sangat lancar dengan nilai Distinction. Persiapan yang diberikan sangat detail terutama di bagian sight-reading dan aural."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center font-serif text-lg">S</div>
+                        <div>
+                            <p class="font-bold text-sm">Sarah L.</p>
+                            <p class="text-xs text-gray-500">Murid (Paket Advanced)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="jadwal" class="py-24 bg-[#FAFAFA] border-b border-gray-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-sm font-bold text-gold-500 uppercase tracking-widest mb-3">Informasi Studio</h2>
+            <h3 class="text-3xl md:text-4xl font-serif text-charcoal-900 font-bold mb-8">Jadwal & Ketersediaan</h3>
+            
+            <div class="bg-white p-8 md:p-12 rounded-sm shadow-sm border border-gray-100 text-left mb-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-serif font-bold text-xl mb-4 border-b border-gray-100 pb-2">Jam Operasional Studio</h4>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between text-gray-600 text-sm">
+                                <span>Senin - Jumat</span>
+                                <span class="font-medium text-charcoal-900">13:00 - 20:00</span>
+                            </li>
+                            <li class="flex justify-between text-gray-600 text-sm">
+                                <span>Sabtu</span>
+                                <span class="font-medium text-charcoal-900">09:00 - 17:00</span>
+                            </li>
+                            <li class="flex justify-between text-gray-600 text-sm">
+                                <span>Minggu / Hari Libur</span>
+                                <span class="font-medium text-red-500">Tutup</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-serif font-bold text-xl mb-4 border-b border-gray-100 pb-2">Ketersediaan Slot</h4>
+                        <div class="bg-amber-50 border-l-4 border-gold-500 p-4 rounded-r-sm">
+                            <p class="text-sm text-charcoal-800">
+                                <strong>Perhatian:</strong> Karena metode kami privat (1-on-1), slot jadwal sangat terbatas. Saat ini tersisa <span class="text-red-600 font-bold">3 slot kosong</span> untuk bulan ini.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Huge CTA -->
+            <div class="bg-charcoal-900 rounded-sm p-10 text-white shadow-xl relative overflow-hidden">
+                <div class="absolute right-0 top-0 opacity-10">
+                    <i class="fas fa-music text-9xl -mt-4 -mr-4"></i>
+                </div>
+                <div class="relative z-10">
+                    <h3 class="text-2xl md:text-3xl font-serif font-bold mb-4">Siap Memulai Perjalanan Anda?</h3>
+                    <p class="mb-8 text-gray-300 max-w-xl mx-auto text-sm">Amankan slot belajar Anda dan jadwalkan sesi perkenalan / trial class. Konsultasi langsung dengan instruktur kami melalui WhatsApp.</p>
+                    
+                    <a href="https://wa.me/62813123123123?text=Halo,%20saya%20tertarik%20untuk%20mendaftar%20les%20piano%20di%20Klavier.%20Apakah%20masih%20ada%20slot%20jadwal%20kosong?" 
+                       target="_blank" 
+                       class="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(34,197,94,0.3)] hover:shadow-[0_0_30px_rgba(34,197,94,0.5)] transform hover:-translate-y-1">
+                        <i class="fab fa-whatsapp text-2xl align-middle mr-2"></i> 
+                        <span class="align-middle">Chat WhatsApp (0813 123 123 123)</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white py-16 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <!-- Branding -->
+                <div>
+                    <h4 class="font-serif text-3xl font-bold text-charcoal-900 tracking-wider mb-4">
+                        Klavier<span class="text-gold-500">.</span>
+                    </h4>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                        Studio les piano privat profesional yang mendedikasikan diri untuk melahirkan musisi yang memahami estetika musik.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-gold-500 hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-gold-500 hover:text-white transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-gold-500 hover:text-white transition-colors"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Contact & Location -->
+                <div>
+                    <h5 class="font-bold text-charcoal-900 uppercase tracking-wider text-sm mb-6">Kontak & Lokasi</h5>
+                    <ul class="space-y-4 text-sm text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-gold-500 w-4"></i>
+                            <span>Jl. Harmoni Indah No. 88,<br>Kebayoran Baru, Jakarta Selatan</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fab fa-whatsapp mr-3 text-gold-500 w-4"></i>
+                            <a href="https://wa.me/62813123123123" class="hover:text-gold-600">0813 - 123 - 123 - 123</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-gold-500 w-4"></i>
+                            <a href="mailto:hello@klavierstudio.id" class="hover:text-gold-600">hello@klavierstudio.id</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h5 class="font-bold text-charcoal-900 uppercase tracking-wider text-sm mb-6">Tautan Cepat</h5>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li><a href="#tentang" class="hover:text-gold-600 transition-colors">Tentang Guru</a></li>
+                        <li><a href="#paket" class="hover:text-gold-600 transition-colors">Biaya & Paket</a></li>
+                        <li><a href="#showcase" class="hover:text-gold-600 transition-colors">Galeri Penampilan</a></li>
+                        <li><a href="#jadwal" class="hover:text-gold-600 transition-colors">Jadwal Kelas</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-100 pt-8 text-center md:text-left flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm text-gray-400">&copy; 2026 Klavier Piano Studio. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar blur on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-sm');
+                nav.classList.replace('py-4', 'py-0'); // Slight reduction in padding if desired
+            } else {
+                nav.classList.remove('shadow-sm');
+                nav.classList.replace('py-0', 'py-4');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
